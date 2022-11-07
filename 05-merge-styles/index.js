@@ -1,7 +1,7 @@
 const fsPromises = require('fs/promises');
 const path = require('path');
 const fs = require('fs');
-let counter = 0;
+
 const bundleCSS = function fn(pathToDir, dest) {
   fsPromises
     .readdir(pathToDir, { withFileTypes: true })
@@ -35,3 +35,5 @@ fsPromises
     );
   })
   .catch((err) => console.log(err));
+
+module.exports = bundleCSS;
