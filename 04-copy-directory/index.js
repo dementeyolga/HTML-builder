@@ -1,5 +1,4 @@
 const fsPromises = require('fs/promises');
-const fs = require('fs');
 const path = require('path');
 
 const copyDir = function fn(pathToDir, pathToDest) {
