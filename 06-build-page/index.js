@@ -3,6 +3,8 @@ const bundleCSS = require('../05-merge-styles/index.js');
 const fsPromises = require('fs/promises');
 const path = require('path');
 
+console.log('! Если используете VSCode, при пересборке отключайте Live Server, пожалуйста !')
+
 const parseHTML = function fn(pathToDir, pathToTemplate, pathToDest) {
   const filesArr = [];
 
@@ -23,7 +25,7 @@ const parseHTML = function fn(pathToDir, pathToTemplate, pathToDest) {
             fsPromises
               .readFile(path.join(pathToDir, filesArr[i]), { encoding: 'utf8' })
               .then((data) => {
-                fullHTML = fullHTML.replace(
+                fullHTML = fullHTML.replaceAll(
                   `{{${filesArr[i].slice(0, filesArr[i].lastIndexOf('.'))}}}`,
                   data
                 );
