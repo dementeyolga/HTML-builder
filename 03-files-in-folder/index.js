@@ -7,9 +7,7 @@ function logDirFiles(pathToDir) {
     .readdir(pathToDir, { withFileTypes: true })
     .then((files) => {
       files.forEach((file) => {
-        if (file.isDirectory()) {
-          logDirFiles(path.join(pathToDir, file.name));
-        } else if (file.isFile()) {
+        if (file.isFile()) {
           fs.stat(path.join(pathToDir, file.name), (err, stats) => {
             if (err) console.log(err);
             let name = file.name;
